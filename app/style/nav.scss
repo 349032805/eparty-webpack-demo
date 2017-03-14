@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+.footer{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 1000;
+	width: 100%;
+	background: white;
+	/*height: 50px;*/
+	box-shadow: 0px -2px 6px 0px rgba(0,0,0,0.06);
+
+ 	.nav{
+      display: flex;
+
+      	li {
+  		  flex: 1;
+          text-align: center;
+
+          i::before {
+          	content: '';
+	        display: inline-block;
+	        background: url("/images/footer_menu.png") no-repeat 0px 0px;
+	        width: 24px;
+	        height: 24px;
+	        margin: .3rem 0 .1rem 0;
+          }
+
+          p {
+          	margin-bottom: .3rem;
+          	color: #5e5e5e;
+          }
+
+          i.menu-select::before {
+	        background-position: 0 1px;
+	        background-size: 48px 118px;
+	      }
+
+      	  i.menu-pay::before {
+	        background-position: 2px -92px;
+	        background-size: 48px 118px;
+	      }
+
+  		   i.menu-order::before {
+		    background-position: 2px -68px;
+		    background-size: 48px 118px;
+		  }
+
+  		   i.menu-evaluate::before {
+			  background-position: 1px -23px;
+			  background-size: 48px 118px;
+		   }
+
+	      &.on {
+	       	i.menu-select::before {
+		        background-position: -25px 1px;
+		        background-size: 48px 118px;
+	      	}
+
+	       	i.menu-pay::before {
+				background-position: -21px -92px;
+				background-size: 48px 118px;
+			}
+
+			i.menu-order::before {
+				background-position: -21px -68px;
+				background-size: 48px 118px;
+		    }
+
+		    i.menu-evaluate::before {
+			  background-position: -21px -23px;
+			  background-size: 48px 118px;
+			}
+
+			p {
+			  color: #fe295a;
+			}
+
+	      }
+
+      	}
+    }
+}
+
+
