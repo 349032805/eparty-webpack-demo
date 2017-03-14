@@ -27,5 +27,16 @@ module.exports={
                 loader: "url?limit=50000"
             }
         ]
-    }
+    },
+
+    devServer: {
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+        progress: true,
+        contentBase: './app',
+        host: '0.0.0.0',
+        port: 8080
+    },
+
 }

@@ -1,7 +1,8 @@
 {
   "name": "eparty-demo",
   "scripts": {
-    "start": "webpack-dev-server --content-base app --inline --hot --port 8080"
+    "start": "webpack-dev-server --inline --hot",
+    "build": ""
   },
   "devDependencies": {
     "cross-env": "^3.1.4",

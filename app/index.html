@@ -6,14 +6,39 @@
     <meta name="viewport" content="width=device-width">
     <meta name="format-detection" content="telephone=no">
 
+    <style>
+      .load-flash{
+        width:100%;
+        height:100%;
+        z-index: 1000;
+        position: absolute;
+        top:0;
+        left:0;
+        background: white;
+
+      }
+
+      .load-img{
+        transform: translateY(50%);
+      }
+
+    </style>
+
   </head>
-  <body ng-app="epartyApp" ng-controller="appCtrl">aaabbb
+  <body ng-app="epartyApp" ng-controller="appCtrl">
+    <!-- 开场动画 -->
+    <div class="load-flash" ng-hide="showTimes">
+          <img src="/images/load.gif" width="100%" class="load-img">
+    </div>
+  
+    </div>
+
        <div ui-view=""></div>
 
        <!-- 底部导航菜单 -->
       <div class="footer">
           <ul class="nav">
-            <li><i class="menu-select"><p>点餐</p></i></li>
+            <li class="on"><i class="menu-select"><p>点餐</p></i></li>
             <li><i class="menu-pay"><p>支付</p></i></li>
             <li><i class="menu-order"><p>已点</p></i></li>
             <li><i class="menu-evaluate"><p>评价</p></i></li>
