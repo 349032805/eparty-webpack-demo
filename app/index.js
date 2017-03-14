@@ -5,7 +5,6 @@ import './styles/main.scss';
 import 'angular';
 import 'angular-animate';
 import 'angular-ui-router';
-import 'angular-ui-bootstrap';
 
 import routerconfig from './scripts/routers/router.js';
 import controllerModule from './scripts/controllers/controller.js'
