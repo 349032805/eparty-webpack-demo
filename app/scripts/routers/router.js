@@ -1,45 +1,27 @@
 var router=function($urlRouterProvider,$stateProvider){
-    $urlRouterProvider.otherwise('/');
-    $stateProvider.
-    state('userLists',{
-        url:"/userLists",
-        templateUrl:'/views/userLists.html'
-    }).
-    state('roleManagerLists',{
-        url:"/roleManagerLists",
-        templateUrl:'/views/roleManagerLists.html'
-    }).
-    state('customerLists',{
-        url:'/customerLists',
-        templateUrl:'/views/customerLists.html'
-    }).
-    state('addStore',{
-        url:'/addStore',
-        templateUrl:'/views/addStore.html'
-    }).
-    state('networkManager',{
-        url:'/networkManager',
-        templateUrl:'/views/networkManager.html'
-    }).
-    state('customerManager',{
-        url:'/customerManager',
-        templateUrl:'/views/customerManager.html'
-    }).
-    state('messageCenter',{
-        url:'/messageCenter',
-        templateUrl:'/views/messageCenter.html'
-    }).
-    state('addRole',{
-        url:'/addRole',
-        templateUrl:'/views/addRole.html'
-    }).
-    state('addUser',{
-        url:'/addUser',
-        templateUrl:'/views/addUser.html'
-    }).
-    state('userDetail',{
-        url:'/userDetail',
-        templateUrl:'/views/userDetail.html'
-    })
+    $urlRouterProvider.when("", "/index");
+    $stateProvider
+        .state("index", {
+            url: "/index",
+            templateUrl: "/views/index.html"
+        })
+        .state("test", {
+            url: "/test",
+            templateUrl: "/views/test.html",
+            controller: 'TestCtrl'
+        })
+         .state("waiterRanking", {
+            url: "/waiterRanking",
+            templateUrl: "/views/waiterRanking.html",
+            controller: 'WaiterRankingCtrl'
+        })
+          .state("hasOrder", {
+            url: "/hasOrder",
+            templateUrl: "/views/hasOrder.html",
+            controller: 'HasOrderCtrl'
+        });
+       
+    $urlRouterProvider.otherwise("/index");
+
 };
 export default router;
