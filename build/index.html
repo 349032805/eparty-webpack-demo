@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>eparty-demo</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .load-flash{
+        width:100%;
+        height:100%;
+        z-index: 1000;
+        position: absolute;
+        top:0;
+        left:0;
+        background: white;
+
+      }
+
+      .load-img{
+        transform: translateY(50%);
+      }
+
+    </style>
+
+  </head>
+  <body ng-app="epartyApp" ng-controller="appCtrl">
+    <!-- 开场动画 -->
+    <div class="load-flash" ng-hide="showTimes">
+          <img src="/images/load.gif" width="100%" class="load-img">
+    </div>
+  
+    </div>
+
+       <div ui-view=""></div>
+
+       <!-- 底部导航菜单 -->
+      <div class="footer">
+          <ul class="nav" ng-init="menu=''">
+            <li ng-class="{'on': menu === 'select', '': menu !== 'select'}" ng-click="menu='select'"><i class="menu-select" ui-sref="index"><p>首页</p></i></li>
+            <li ng-class="{'on': menu === 'pay', '': menu !== 'pay'}" ng-click="menu='pay'"><i class="menu-pay"><p>支付</p></i></li>
+            <li ng-class="{'on': menu === 'order', '': menu !== 'order'}" ng-click="menu='order'"><i class="menu-order"><p>已点</p></i></li>
+            <li ng-class="{'on': menu === 'evaluate', '': menu !== 'evaluate'}" ng-click="menu='evaluate'"><i class="menu-evaluate"><p>评价</p></i></li>
+          </ul>
+      </div>
+  <script type="text/javascript" src="/bundle.66577b.js"></script></body>
+    <script src="./bundle.js"></script>
+</html>
