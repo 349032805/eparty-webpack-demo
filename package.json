@@ -3,7 +3,7 @@
   "author":"fanjun <349032805@qq.com>",
   "scripts": {
     "start": "webpack-dev-server --inline --hot",
-    "build": ""
+    "build": "cross-env NODE_ENV=production webpack -p --config webpack.production.config.js"
   },
   "devDependencies": {
     "cross-env": "^3.1.4",
@@ -11,6 +11,7 @@
     "babel-loader": "^6.2.8",
     "babel-preset-latest": "^6.22.0",
     "open-browser-webpack-plugin": "latest",
+    "html-webpack-plugin": "^2.24.1",
     "postcss": "^5.2.15",
     "css-loader": "^0.26.1",
     "file-loader": "^0.9.0",
