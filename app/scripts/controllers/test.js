@@ -1,101 +1,46 @@
 'use strict';
 
-angular.module('epartyApp')
-  .controller('TestCtrl', function ($scope,$http,$location,$interval,$state,baseUrl) {
+export default class TestCtrl{
+    constructor($state,$location,$http,$interval) {
+    this.$http = $http;
+    this.$location = $location;
+    this.$state = $state;
+    this.$interval = $interval;
 
-	 $scope.goPage = function ($event) {
-        $scope.page = $event.target.getAttribute('data');
-        // $scope.page = $event.target.innerText;
-        // $scope.page = $event.target.innerHTML;
-        alert($scope.page);
-    }
+    this.smsCodeCountDown = 0;
+  }
 
-    $scope.getModelValue = function () {
-     var hello = $scope.hello;
-     alert(hello);
-   }
+  getModelValue(hello){
+      alert(hello);
+  }
 
-     $http({
-          method:'GET',
-          url:baseUrl+'/empty/test',
-          // params:{storeId:120},
-          // data:{storeId:120},
-          // responseType:'json'
-      }).then(function(res){
-      console.log(res.statusText);
-      console.log(res.data);
-        }, function(res){
-        console.log("fail...");
-      });
-
-      // $http.post(urlService.baseUrl+'/api/v1/stores/6',{
-      //     // params:{},
-      //     // responseType:'json'
-      // }).success(function(res){
-      //     console.log(res);
-      //   }).error(function(res){
-      //   console.log("fail...");
-      // });
-
-
-        // 在jsonp中，url的最后必须严格带上“&callback=JSON_CALLBACK”，而且名字不能改
-    // var url = "http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1&callback=JSON_CALLBACK";
-    // $http.jsonp(url)
-    //    .success(function (data) { // 在这里定义JSON_CALLBACK。其实与GET差不多
-    //         console.log('jsonp:', data)
-    // })
-    // .error(function (err) {
-    //     console.log('error', err);
-    // });
-
-      //   $http({
-      //     method:'POST',
-      //     url:urlService.getBaseUrl()+'/annehttp/report/detail',
-      //     // params:{},
-      //     data:{
-      //      "storeId":3,
-      //       "startDate":"2016-11-01",
-      //       "reportType":2
-      //     },
-      // }).then(function(resp){
-      //    console.log(resp.statusText);
-      //   }, function(resp){
-      //    console.log("fail...");
-      // });
-
-
-      // $scope.user.push({
-      //   name:'fan',
-      //   age:20,
-      //   sex:0
-      // });
-
-      //获取参数
-    $scope.getParams = function () {
-      var id  = $location.search().id;
-      var tableCode  = $location.search().tableCode;
-      alert(id);
-      alert(tableCode);
-    }
+  //获取参数
+  // getParams() {
+ //      let id  = this.$location.search().id;
+ //      let tableCode  = this.$location.search().tableCode;
+ //      alert(id);
+ //      alert(tableCode);
+ //    }
 
     //js跳转页面
-     $scope.gotoPage = function () {
-         $state.go('index');
+     gotoPage () {
+         this.$state.go('index');
          // window.location.href="#/index";
-         // $location.path('/index')
+         // this.$location.path('/index')
     }
 
     //短信验证码倒计时
-    $scope.getSmsCode = function() {
-      $scope.smsCodeCountDown = 10;
-      var countDown = $interval(function() {
-        $scope.smsCodeCountDown--;
-        if ($scope.smsCodeCountDown <= 0) {
-          $interval.cancel(countDown);
+    getSmsCode() {
+      let vm = this;
+      vm.smsCodeCountDown = 10;
+      let countDown = vm.$interval(function() {
+        vm.smsCodeCountDown --;
+        if (vm.smsCodeCountDown <= 0) {
+          vm.$interval.cancel(countDown);
         }
       }, 1000);
     }
 
+}
 
-
-  });
+TestCtrl.$inject=['$state','$location','$http','$interval']
