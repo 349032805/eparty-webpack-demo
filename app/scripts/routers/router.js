@@ -1,4 +1,4 @@
-var router=function($urlRouterProvider,$stateProvider){
+let router = function($urlRouterProvider,$stateProvider){
     $urlRouterProvider.when("", "/index");
     $stateProvider
         .state("index", {
