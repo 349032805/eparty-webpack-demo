@@ -3,6 +3,7 @@ var path = require('path');
 // var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var node_modules = path.resolve(__dirname, 'node_modules');
 
 module.exports = {
   // devtool: 'source-map',
@@ -17,12 +18,11 @@ module.exports = {
   },
   module: {
     loaders:[
-      { test: /\.scss$/,include: path.resolve(__dirname, 'app'), loader: 'style!css!sass?sourceMap'},
-      { test: /\.css$/, include: path.resolve(__dirname, 'app'), loader: 'style-loader!css-loader'},
-      { test: /\.js?$/, include: path.resolve(__dirname, 'app'), exclude: /node_modules/, loader: 'babel-loader'},
-      {test: /\.(png|jpg|gif)$/, loader: 'url?limit=8192'},
-      {test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,loader : 'file-loader'}
-
+      { test: /\.css$/, loader: 'style!css' },
+      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.js$/, loader:'babel', query:{ presets:['latest']}, exclude: path.resolve(__dirname, node_modules) },
+      { test: /\.(png|jpg|gif)$/, loader: 'url?limit=8192' },
+      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'file-loader' }
     ]
   },
   plugins: [
