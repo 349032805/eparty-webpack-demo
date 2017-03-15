@@ -7,7 +7,8 @@ let router = function($urlRouterProvider,$stateProvider){
         })
         .state("test", {
             url: "/test",
-            templateUrl: "/views/test.html"
+            templateUrl: "/views/test.html",
+            controller: 'TestCtrl as vm'
         })
          .state("waiterRanking", {
             url: "/waiterRanking",
@@ -16,7 +17,8 @@ let router = function($urlRouterProvider,$stateProvider){
         })
           .state("hasOrder", {
             url: "/hasOrder",
-            templateUrl: "/views/hasOrder.html"
+            templateUrl: "/views/hasOrder.html",
+            controller: 'HasOrderCtrl as vm'
         });
        
     $urlRouterProvider.otherwise("/index");
