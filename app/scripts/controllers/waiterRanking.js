@@ -36,7 +36,8 @@ export default class WaiterRankingCtrl{
     	let vm = this;
 	    this.$http({
 	        url: 'https://cnodejs.org/api/v1/topics',
-	        method:'GET'
+	        method:'GET',
+	        params: {limit:10}
 	    }).then(function(res){
 	    	console.log(res.data.data);
 	        vm.topicList = res.data.data;
@@ -46,9 +47,12 @@ export default class WaiterRankingCtrl{
 
     }
 
+    //加载更多
     loadMore(){
     	alert("loadMore");
     }
+
+
 
 }
 
