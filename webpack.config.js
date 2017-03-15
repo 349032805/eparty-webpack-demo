@@ -1,3 +1,7 @@
+
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var path = require('path');
+
 module.exports={
     entry:'./app/index.js',
     output:{
@@ -38,5 +42,9 @@ module.exports={
         host: '0.0.0.0',
         port: 8080
     },
+      //插件项
+    plugins: [
+        new OpenBrowserPlugin({ url: 'http://localhost:8080' })
+    ]
 
 }
