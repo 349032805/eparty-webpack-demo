@@ -11,7 +11,8 @@ let router = function($urlRouterProvider,$stateProvider){
         })
          .state("waiterRanking", {
             url: "/waiterRanking",
-            templateUrl: "/views/waiterRanking.html"
+            templateUrl: "/views/waiterRanking.html",
+            controller: 'WaiterRankingCtrl as vm'
         })
           .state("hasOrder", {
             url: "/hasOrder",
