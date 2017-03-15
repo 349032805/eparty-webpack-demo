@@ -1,5 +1,6 @@
 {
   "name": "eparty-demo",
+  "author":"fanjun <349032805@qq.com>",
   "scripts": {
     "start": "webpack-dev-server --inline --hot",
     "build": ""
