@@ -1,7 +1,9 @@
 'use strict';
 
 export default class WaiterRankingCtrl{
-    constructor(){
+    constructor($http) {
+    	this.$http = $http;
+
     	this.list  = [
 		   {
 		     "name": "张三",
@@ -28,6 +30,26 @@ export default class WaiterRankingCtrl{
 		     "date": 1483926354510
 		   }
 		];
+
+		//https://cnodejs.org/api
+    	//https://cnodejs.org/api/v1/topics
+    	let vm = this;
+	    this.$http({
+	        url: 'https://cnodejs.org/api/v1/topics',
+	        method:'GET'
+	    }).then(function(res){
+	    	console.log(res.data.data);
+	        vm.topicList = res.data.data;
+	    },function(err){
+	        console.log(err);
+	    });
+
+    }
+
+    loadMore(){
+    	alert("loadMore");
     }
 
 }
+
+WaiterRankingCtrl.$inject=['$http']

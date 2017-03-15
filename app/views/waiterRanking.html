@@ -2,6 +2,7 @@
 	table{
 		width:100%;
 		background-color: white;
+		margin-bottom: 30px;
 	}
 
 	tr,th,td{
@@ -13,6 +14,7 @@
 		font-weight: normal;
 		border-bottom: 1px solid #D2D2D2;
 		width:20%;
+		text-align: center;
 	}
 	td{
 		text-align: center;
@@ -49,20 +51,31 @@
 					<td>{{item.date |date:"yyyy-MM-dd"}}</td>
 				</tr>
 				<tr>
-					<td colspan="4" style="border-bottom: none;color:#999;" ng-click="test()">加载更多</td>
+					<td colspan="4" style="border-bottom: none;color:#999;" ng-click="vm.loadMore()">点击加载更多</td>
+				</tr>
+			</tbody>
+		</table>
+		
+
+		<table>
+			<thead>
+				<tr>
+					<th style="width:100%">主题</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in vm.topicList">
+					<td>{{ item.title }}</td>
 				</tr>
 			</tbody>
 		</table>
 
 
-		<br>
-		 <button type="button" class="btn btn-info" ng-click="vm.test()">测试</button>
-
-		 <div style="margin-top:30px;">
+		<div>
           <h4>指令</h4>
           <rainbow color='red'></rainbow>
           <rainbow color='orange'></rainbow>
           <rainbow color='green'></rainbow>
-     </div>
+     	</div>
 
 	</div>
