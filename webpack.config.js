@@ -9,7 +9,7 @@ module.exports={
     entry:'./app/index.js',
     output:{
       path:__dirname + '/app',
-      filename: "[name]-[hash].js"
+      filename: "bundle.js" //内存中的打包文件,提升热更新效率
     },
     module:{
         loaders:[
@@ -21,6 +21,8 @@ module.exports={
         ]
     },
 
+    //这个配置在 npm scripts里也可以 
+    //webpack-dev-server --devtool eval --progress --colors --hot --content-base app --history-api-fallback
     devServer: {
         historyApiFallback: true,
         hot: true,
@@ -33,7 +35,6 @@ module.exports={
       //插件项
     plugins: [
         new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
-        // new ExtractTextPlugin("css/[name].[hash].css"),
         new HtmlWebpackPlugin({
           template: __dirname + '/app/index.html',
           filename: 'index.html'
