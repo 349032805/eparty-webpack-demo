@@ -17,12 +17,15 @@ module.exports={
           { test: /\.scss$/, loader: 'style!css!sass' },
           { test: /\.js$/, loader:'babel', query:{ presets:['latest']}, exclude: path.resolve(__dirname, node_modules) },
           { test: /\.(png|jpg|gif)$/, loader: 'url?limit=8192' },
-          { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'file-loader' }
+          { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'file-loader' },
+          //配合路由require做html热更新
+          // { test: /\.(htm|html)$/i,loader: 'html-withimg-loader'},
+          // { test: /\.html$/,loader: "html-loader"}
         ]
     },
 
     //这个配置在 npm scripts里也可以 
-    //webpack-dev-server --devtool eval --progress --colors --hot --content-base app --history-api-fallback
+    //webpack-dev-server --devtool eval --progress --colors --hot --open --content-base app --history-api-fallback
     devServer: {
         historyApiFallback: true,
         hot: true,
@@ -30,11 +33,12 @@ module.exports={
         progress: true,
         contentBase: './app',
         host: '0.0.0.0',
-        port: 8080
+        port: 8080,
+        open:true
     },
       //插件项
     plugins: [
-        new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
+        // new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
         new HtmlWebpackPlugin({
           template: __dirname + '/app/index.html',
           filename: 'index.html'
