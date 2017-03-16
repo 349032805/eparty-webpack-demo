@@ -16,8 +16,9 @@ module.exports={
           { test: /\.css$/, loader: 'style!css' },
           { test: /\.scss$/, loader: 'style!css!sass' },
           { test: /\.js$/, loader:'babel', query:{ presets:['latest']}, exclude: path.resolve(__dirname, node_modules) },
-          { test: /\.(png|jpg|gif)$/, loader: 'url?limit=8192' },
-          { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'file-loader' },
+          //开发环境可以不用配 图片转字符流,直接用原始的图片
+          // { test: /\.(png|jpg|gif)$/, loader: 'url?limit=8192' },
+          // { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'file-loader' },
           //配合路由require做html热更新
           // { test: /\.(htm|html)$/i,loader: 'html-withimg-loader'},
           // { test: /\.html$/,loader: "html-loader"}
@@ -34,7 +35,7 @@ module.exports={
         contentBase: './app',
         host: '0.0.0.0',
         port: 8080,
-        open:true
+        open:true //自动打开页面,和OpenBrowserPlugin 插件功能一样
     },
       //插件项
     plugins: [

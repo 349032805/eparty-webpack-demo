@@ -18,7 +18,7 @@ export default class WaiterRankingCtrl{
 		     "date": 1483423254510
 		   },
 		   {
-		     "name": "王五",
+		     "name": "王五a",
 		     "score": 76,
 		     "sex": 1,
 		     "date": 1483723454510
