@@ -2,13 +2,14 @@
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 var path = require('path');
 var node_modules = path.resolve(__dirname, 'node_modules');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports={
-    // entry:'./app/index.js',
-    entry: __dirname + "/app/index.js",
+    entry:'./app/index.js',
     output:{
-        path:__dirname + '/app',
-        filename:'bundle.js'
+      path:__dirname + '/app',
+      filename: "[name]-[hash].js"
     },
     module:{
         loaders:[
@@ -31,7 +32,12 @@ module.exports={
     },
       //插件项
     plugins: [
-        new OpenBrowserPlugin({ url: 'http://localhost:8080' })
+        new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
+        // new ExtractTextPlugin("css/[name].[hash].css"),
+        new HtmlWebpackPlugin({
+          template: __dirname + '/app/index.html',
+          filename: 'index.html'
+        }),
     ]
 
 }
