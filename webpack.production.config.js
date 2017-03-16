@@ -23,27 +23,25 @@ module.exports = {
   module:{
     loaders:[
             {
-                test:/\.css$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+              test:/\.css$/,
+              loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
             },
             {
-                test:/\.scss$/,
-                loader: ExtractTextPlugin.extract('style', 'css!sass',{
-                    publicPath: '../'
-                })
+              test:/\.scss$/,
+              loader: ExtractTextPlugin.extract('style', 'css!sass')
             },
              { test: /\.js$/, loader:'babel', query:{ presets:['latest']}, exclude: /node_modules/ },
             {
-                test:/\.(png|jpg|gif|woff|woff2|ttf|eot|svg|swf)$/,
-                loader: "url-loader?limit=8192&name=/images/[name]-[hash:8].[ext]"
+              test:/\.(png|jpg|gif|woff|woff2|ttf|eot|svg|swf)$/,
+              loader: "url-loader?limit=8192&name=/images/[name]-[hash:8].[ext]"
             },
             {
-    　　　　　　 test: /\.(htm|html)$/i,
-    　　　　　　 loader: 'html-withimg-loader'
+  　　　　　　  test: /\.(htm|html)$/i,
+  　　　　　　  loader: 'html-withimg-loader'
     　　　　 },
             {
-                test: /\.html$/,
-                loader: "html-loader"
+              test: /\.html$/,
+              loader: "html-loader"
             }
         ]
         

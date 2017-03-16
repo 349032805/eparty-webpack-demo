@@ -1,4 +1,4 @@
-import './styles/common.scss';
+import './styles/common.css';
 import './styles/nav.scss';
 import './styles/main.scss';
 
