@@ -1,6 +1,5 @@
 var webpack = require('webpack');
 var path = require('path');
-// var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 // var node_modules = path.resolve(__dirname, 'node_modules');
@@ -55,18 +54,26 @@ module.exports = {
    new ExtractTextPlugin("styles/[name]-[contenthash:8].css"),
    new HtmlWebpackPlugin({
       template: __dirname + '/app/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      hash:false,    //为静态资源生成hash值
+      minify:{    //压缩HTML文件
+          removeComments:true,    //移除HTML中的注释
+          collapseWhitespace:false    //删除空白符与换行符
+      }
     }),
-    // new webpack.DefinePlugin({
-    //   'process.env':{
-    //     'NODE_ENV': JSON.stringify('production')
-    //   }
-    // }),
-    // new webpack.optimize.DedupePlugin(),
-    // new uglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   }
-    // })
+     // 去重插件
+    new webpack.optimize.DedupePlugin(),
+    // 根据使用率来预测分配序列
+    new webpack.optimize.OccurenceOrderPlugin(),
+    //压缩
+    new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            //supresses warnings, usually from module minification
+            warnings: false,
+            drop_console: true
+        },
+        comments: false,
+    })
+
   ]
 };

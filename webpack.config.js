@@ -5,6 +5,8 @@ var node_modules = path.resolve(__dirname, 'node_modules');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+//配置请求的代理和切换
+
 module.exports={
     entry:'./app/index.js',
     output:{
