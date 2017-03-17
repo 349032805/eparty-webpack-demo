@@ -38,10 +38,10 @@ module.exports = {
   　　　　　　  test: /\.(htm|html)$/i,
   　　　　　　  loader: 'html-withimg-loader'
     　　　　 },
-  //           {
-  //             test: /\.html$/,
-  //             loader: "html-loader"
-  //           }
+            {
+              test: /\.html$/,
+              loader: "html-loader"
+            }
         ]
         
     },

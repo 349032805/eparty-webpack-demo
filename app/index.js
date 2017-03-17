@@ -13,7 +13,6 @@ export default angular.module('epartyApp',['ui.router','ngMessages','ngAnimate',
 .config(routerconfig)
 .controller('appCtrl', function ($scope,$state,$stateParams,$timeout) {
   // $scope.$state=$state;
-  
     if(!$scope.showTimes){
 	  $timeout(function() {
 	     $scope.showTimes = 1;

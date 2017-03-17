@@ -18,12 +18,10 @@ module.exports={
           { test: /\.css$/, loader: 'style!css' },
           { test: /\.scss$/, loader: 'style!css!sass' },
           { test: /\.js$/, loader:'babel', query:{ presets:['latest']}, exclude: path.resolve(__dirname, node_modules) },
-          //开发环境可以不用配 图片转字符流,直接用原始的图片
-          // { test: /\.(png|jpg|gif)$/, loader: 'url?limit=8192' },
-          // { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'file-loader' },
+          { test:/\.(png|jpg|gif|woff|woff2|ttf|eot|svg|swf)$/,loader: "file-loader?name=images/[name].[ext]"},
           //配合路由require做html热更新
-          // { test: /\.(htm|html)$/i,loader: 'html-withimg-loader'},
-          // { test: /\.html$/,loader: "html-loader"}
+          { test: /\.(htm|html)$/i,loader: 'html-withimg-loader'},
+          { test: /\.html$/,loader: "html-loader"}
         ]
     },
 
