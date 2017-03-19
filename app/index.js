@@ -11,7 +11,7 @@ import routerconfig from './scripts/routers/router.js';
 import controllerModule from './scripts/controllers/controller.js'
 export default angular.module('epartyApp',['ui.router','ngMessages','ngAnimate',controllerModule])
 .config(routerconfig)
-.controller('appCtrl', function ($scope,$state,$stateParams,$timeout) {
+.controller('appCtrl', ["$scope","$timeout",function ($scope,$timeout) {
   // $scope.$state=$state;
     if(!$scope.showTimes){
 	  $timeout(function() {
@@ -19,4 +19,4 @@ export default angular.module('epartyApp',['ui.router','ngMessages','ngAnimate',
 	    }, 2000);
 	}
 
-}).name
+}]).name

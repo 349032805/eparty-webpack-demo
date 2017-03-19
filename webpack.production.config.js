@@ -16,11 +16,12 @@ module.exports = {
   entry: {
     vendor: ["angular", "angular-ui-router","angular-messages","angular-animate"],
     app: "./app/index.js"
-  }
+  },
   output: {
     path: __dirname + '/build',
-    // publicPath: '/'
-    filename: "scripts/[name]-[chunkhash:8].js",
+    // path: path.join(__dirname, 'build'),
+    // publicPath: '', //资源路径前缀
+    filename: "scripts/[name]-[chunkhash:8].js"
   },
   module:{
     loaders:[
@@ -55,16 +56,15 @@ module.exports = {
       dry: false
     }),
    new ExtractTextPlugin("styles/[name]-[contenthash:8].css"),
-   new webpack.optimize.CommonsChunkPlugin('vendor', 'scripts/vendor.[hash:6].js'),
+   // new webpack.optimize.CommonsChunkPlugin('vendor', 'scripts/vendor.[chunkhash:6].js'),
    new HtmlWebpackPlugin({
-      chunks: ['app', 'vendor'],
       template: __dirname + '/app/index.html',
       filename: 'index.html',
-      hash:false,    //为静态资源生成hash值
-      minify:{    //压缩HTML文件
-          removeComments:true,    //移除HTML中的注释
-          collapseWhitespace:false    //删除空白符与换行符
-      }
+      // hash:false,    //为静态资源生成hash值
+      // minify:{    //压缩HTML文件
+      //     removeComments:true,    //移除HTML中的注释
+      //     collapseWhitespace:false    //删除空白符与换行符
+      // }
     }),
      // 去重插件
     new webpack.optimize.DedupePlugin(),
@@ -73,12 +73,10 @@ module.exports = {
     //压缩
     new webpack.optimize.UglifyJsPlugin({
         compress: {
-            //supresses warnings, usually from module minification
             warnings: false,
             drop_console: true
         },
         comments: false,
     })
-
   ]
 };

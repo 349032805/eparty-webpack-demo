@@ -1,7 +1,7 @@
 'use strict';
 
 export default class TestCtrl{
-    constructor($state,$location,$http,$interval) {
+  constructor($state,$location,$http,$interval) {
     this.$http = $http;
     this.$location = $location;
     this.$state = $state;
