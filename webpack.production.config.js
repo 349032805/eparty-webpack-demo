@@ -13,11 +13,14 @@ module.exports = {
   // entry: [
   //   path.resolve(__dirname, 'app/index.js'),
   // ],
-  entry:'./app/index.js',
+  entry: {
+    vendor: ["angular", "angular-ui-router","angular-messages","angular-animate"],
+    app: "./app/index.js"
+  }
   output: {
     path: __dirname + '/build',
-    // publicPath: '/',
-    filename: "scripts/[name]-[chunkhash:8].js"
+    // publicPath: '/'
+    filename: "scripts/[name]-[chunkhash:8].js",
   },
   module:{
     loaders:[
@@ -52,7 +55,9 @@ module.exports = {
       dry: false
     }),
    new ExtractTextPlugin("styles/[name]-[contenthash:8].css"),
+   new webpack.optimize.CommonsChunkPlugin('vendor', 'scripts/vendor.[hash:6].js'),
    new HtmlWebpackPlugin({
+      chunks: ['app', 'vendor'],
       template: __dirname + '/app/index.html',
       filename: 'index.html',
       hash:false,    //为静态资源生成hash值
