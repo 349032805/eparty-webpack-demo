@@ -5,8 +5,6 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 // var node_modules = path.resolve(__dirname, 'node_modules');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-var ENV = process.env.NODE_ENV || 'development';
-
 module.exports = {
   // devtool: 'source-map',
   devtool: 'cheap-source-map',
