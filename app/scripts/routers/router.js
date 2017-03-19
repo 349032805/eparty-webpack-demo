@@ -46,4 +46,6 @@ let router = function($urlRouterProvider,$stateProvider){
     $urlRouterProvider.otherwise("/index");
 
 };
+
+router.$inject = ['$urlRouterProvider', '$stateProvider'];
 export default router;
