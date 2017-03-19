@@ -8,9 +8,13 @@ import 'angular-messages';
 import 'angular-animate';
 
 import routerconfig from './scripts/routers/router.js';
+// import sessionInjector from './scripts/config/sessionInjector.js'
 import controllerModule from './scripts/controllers/controller.js'
 export default angular.module('epartyApp',['ui.router','ngMessages','ngAnimate',controllerModule])
 .config(routerconfig)
+// .config(['$httpProvider', function($httpProvider) {
+//     $httpProvider.interceptors.push(sessionInjector.sessionInjector);
+// }])
 .controller('appCtrl', ["$scope","$timeout",function ($scope,$timeout) {
   // $scope.$state=$state;
     if(!$scope.showTimes){
