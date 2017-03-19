@@ -36,7 +36,7 @@ module.exports = {
              { test: /\.js$/, loader:'babel', query:{ presets:['latest']}, exclude: /node_modules/ },
             {
               test:/\.(png|jpg|gif|woff|woff2|ttf|eot|svg|swf)$/,
-              loader: "url-loader?limit=8192&name=images/[name]-[hash:8].[ext]"
+              loader: "url-loader?limit=8192&name=/images/[name]-[hash:8].[ext]"
             },
             {
   　　　　　　  test: /\.(htm|html)$/i,
