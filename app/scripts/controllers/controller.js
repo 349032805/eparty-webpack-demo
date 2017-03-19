@@ -1,3 +1,4 @@
+import baseUrlService from '../config/baseUrl.js'
 
 import WaiterRankingCtrl from './waiterRanking.js'
 import rainbowDirective from '../directives/rainbow.js'
@@ -5,6 +6,7 @@ import HasOrderCtrl from './hasOrder.js'
 import TestCtrl from './test.js'
 
 export default angular.module('controllerModule',[rainbowDirective])
+.service('baseUrlService',baseUrlService)
 .controller('WaiterRankingCtrl',WaiterRankingCtrl)
 .controller('HasOrderCtrl',HasOrderCtrl)
 .controller('TestCtrl',TestCtrl)

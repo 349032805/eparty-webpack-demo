@@ -35,7 +35,14 @@ module.exports={
         contentBase: './app',
         host: '0.0.0.0',
         port: 8080,
-        open:true //自动打开页面,和OpenBrowserPlugin 插件功能一样
+        open:true, //自动打开页面,和OpenBrowserPlugin 插件功能一样
+        proxy: {
+        '/api/*': {
+          target: 'http://localhost:8081',
+          secure: false,
+          changeOrigin: true
+        }
+      }
     },
       //插件项
     plugins: [

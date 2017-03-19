@@ -1,13 +1,23 @@
 'use strict';
 
 export default class TestCtrl{
-  constructor($state,$location,$http,$interval) {
+  constructor($state,$location,$http,$interval,baseUrlService) {
     this.$http = $http;
     this.$location = $location;
     this.$state = $state;
     this.$interval = $interval;
+    this.baseUrlService = baseUrlService;
 
     this.smsCodeCountDown = 0;
+
+   this.$http({
+      url: baseUrlService.baseUrl + '/shop/list',
+      method:'GET'
+    }).then(function(res){
+      console.log(res);
+    },function(err){
+        console.log(err);
+    });
   }
 
   getModelValue(hello){
@@ -43,4 +53,4 @@ export default class TestCtrl{
 
 }
 
-TestCtrl.$inject=['$state','$location','$http','$interval']
+TestCtrl.$inject=['$state','$location','$http','$interval','baseUrlService']
