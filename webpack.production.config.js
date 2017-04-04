@@ -75,6 +75,7 @@ module.exports = {
             drop_console: true
         },
         comments: false,
+        sourceMap: false
     })
   ]
 };
